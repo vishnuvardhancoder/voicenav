@@ -27,7 +27,7 @@ const useVoiceNavigation = () => {
       return;
     }
 
-    if (recognitionRef.current) return; // Already listening
+    if (recognitionRef.current) return;
 
     const recognition = new SpeechRecognition();
     recognition.lang = "en-US";
@@ -42,7 +42,6 @@ const useVoiceNavigation = () => {
       else if (text.includes("about")) navigate("/about");
       else if (text.includes("contact")) navigate("/contact");
       else if (text.includes("previous") || text.includes("go to previous")) {
-        // Navigate to the previous route if it exists
         if (previousRoute.current) {
           navigate(previousRoute.current);
         } else {
